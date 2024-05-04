@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils";
 
 export interface Post {
   id: string;
@@ -14,7 +15,7 @@ const PostListing = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost/backend_blog_app/api/getPosts.php")
+    fetch(`${BASE_URL}/getPosts.php`)
       .then((response) => response.json())
       .then((data) => {
         // Assuming data is an array of posts retrieved from the PHP server

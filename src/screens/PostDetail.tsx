@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Post } from "./PostListing";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
+import { BASE_URL } from "../utils";
 const PostDetail = () => {
   const { id } = useParams();
   const [post, setPost] = useState<Post>();
@@ -9,7 +10,7 @@ const PostDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost/backend_blog_app/api/getPost.php?postId=${id}`)
+    fetch(`${BASE_URL}/getPost.php?postId=${id}`)
       .then((response) => response.json())
       .then((data) => {
         // Assuming data is an array of posts retrieved from the PHP server

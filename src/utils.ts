@@ -1,0 +1,1 @@
+export const BASE_URL = "https://blogwebsitecms.000webhostapp.com";
